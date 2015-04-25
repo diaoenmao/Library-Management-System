@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-04-21 13:52:22
--- 服务器版本： 5.6.17
+-- Generation Time: Apr 21, 2015 at 10:29 PM
+-- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `author`
+-- Table structure for table `author`
 --
 
 CREATE TABLE IF NOT EXISTS `author` (
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `author` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `author`
+-- Dumping data for table `author`
 --
 
 INSERT INTO `author` (`ISBN`, `Author`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `author` (`ISBN`, `Author`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `book`
+-- Table structure for table `book`
 --
 
 CREATE TABLE IF NOT EXISTS `book` (
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `book` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `book`
+-- Dumping data for table `book`
 --
 
 INSERT INTO `book` (`ISBN`, `Title`, `Cost`, `IsReserved`, `Edition`, `PubliPlace`, `Publisher`, `CopyYr`, `ShelfID`, `SubName`) VALUES
@@ -114,7 +114,7 @@ INSERT INTO `book` (`ISBN`, `Title`, `Cost`, `IsReserved`, `Edition`, `PubliPlac
 -- --------------------------------------------------------
 
 --
--- 表的结构 `bookcopy`
+-- Table structure for table `bookcopy`
 --
 
 CREATE TABLE IF NOT EXISTS `bookcopy` (
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `bookcopy` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `bookcopy`
+-- Dumping data for table `bookcopy`
 --
 
 INSERT INTO `bookcopy` (`ISBN`, `CopyID`, `IsChecked`, `IsHold`, `IsDamaged`, `FuRequester`) VALUES
@@ -146,7 +146,7 @@ INSERT INTO `bookcopy` (`ISBN`, `CopyID`, `IsChecked`, `IsHold`, `IsDamaged`, `F
 ('0124077269', 7, 0, 0, 1, NULL),
 ('0205973361', 1, 1, 0, 0, NULL),
 ('0205973361', 2, 0, 1, 0, NULL),
-('0205973361', 3, 1, 0, 0, NULL),
+('0205973361', 3, 0, 0, 0, NULL),
 ('0321696867', 1, 0, 0, 0, NULL),
 ('0321696867', 2, 0, 0, 0, NULL),
 ('0321696867', 3, 0, 0, 0, NULL),
@@ -189,7 +189,7 @@ INSERT INTO `bookcopy` (`ISBN`, `CopyID`, `IsChecked`, `IsHold`, `IsDamaged`, `F
 -- --------------------------------------------------------
 
 --
--- 表的结构 `floor`
+-- Table structure for table `floor`
 --
 
 CREATE TABLE IF NOT EXISTS `floor` (
@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `floor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `floor`
+-- Dumping data for table `floor`
 --
 
 INSERT INTO `floor` (`FloorID`, `NumAssistant`, `NumCopier`) VALUES
@@ -211,7 +211,7 @@ INSERT INTO `floor` (`FloorID`, `NumAssistant`, `NumCopier`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `issue`
+-- Table structure for table `issue`
 --
 
 CREATE TABLE IF NOT EXISTS `issue` (
@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `issue` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `issue`
+-- Dumping data for table `issue`
 --
 
 INSERT INTO `issue` (`Username`, `ISBN`, `CopyID`, `IssueID`, `ExtenDate`, `IssueDate`, `ReturnDate`, `NumExten`) VALUES
@@ -243,7 +243,6 @@ INSERT INTO `issue` (`Username`, `ISBN`, `CopyID`, `IssueID`, `ExtenDate`, `Issu
 ('bturner', '0124077269', 3, 169, NULL, '2015-04-20', '2015-05-04', 0),
 ('bturner', '0321884078', 1, 119, '2015-04-07', '2015-04-07', '2015-04-21', 0),
 ('cbenson', '1452257876', 1, 116, '2015-04-15', '2015-04-11', '2015-04-29', 1),
-('dem', '0205973361', 3, 185, '2015-04-21', '2015-04-21', '2015-05-05', 0),
 ('ediao', '0124077269', 1, 74, '2015-02-10', '2015-02-10', '2015-02-24', 0),
 ('ediao', '0321696867', 1, 89, '2015-02-10', '2015-02-10', '2015-02-24', 0),
 ('ediao', '099040207X', 2, 148, NULL, '2015-04-16', '2015-04-30', 0),
@@ -279,7 +278,7 @@ INSERT INTO `issue` (`Username`, `ISBN`, `CopyID`, `IssueID`, `ExtenDate`, `Issu
 -- --------------------------------------------------------
 
 --
--- 表的结构 `keyword`
+-- Table structure for table `keyword`
 --
 
 CREATE TABLE IF NOT EXISTS `keyword` (
@@ -289,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `keyword` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `keyword`
+-- Dumping data for table `keyword`
 --
 
 INSERT INTO `keyword` (`SName`, `Keyword`) VALUES
@@ -315,7 +314,7 @@ INSERT INTO `keyword` (`SName`, `Keyword`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `shelf`
+-- Table structure for table `shelf`
 --
 
 CREATE TABLE IF NOT EXISTS `shelf` (
@@ -327,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `shelf` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `shelf`
+-- Dumping data for table `shelf`
 --
 
 INSERT INTO `shelf` (`ShelfID`, `FloorID`, `AisleID`) VALUES
@@ -353,7 +352,7 @@ INSERT INTO `shelf` (`ShelfID`, `FloorID`, `AisleID`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `staff`
+-- Table structure for table `staff`
 --
 
 CREATE TABLE IF NOT EXISTS `staff` (
@@ -362,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `staff`
+-- Dumping data for table `staff`
 --
 
 INSERT INTO `staff` (`Username`) VALUES
@@ -372,7 +371,7 @@ INSERT INTO `staff` (`Username`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `student_faculty`
+-- Table structure for table `student_faculty`
 --
 
 CREATE TABLE IF NOT EXISTS `student_faculty` (
@@ -390,7 +389,7 @@ CREATE TABLE IF NOT EXISTS `student_faculty` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `student_faculty`
+-- Dumping data for table `student_faculty`
 --
 
 INSERT INTO `student_faculty` (`Username`, `Name`, `DOB`, `Email`, `IsDebarred`, `Gender`, `Address`, `IsFaculty`, `Penalty`, `Dept`) VALUES
@@ -400,7 +399,6 @@ INSERT INTO `student_faculty` (`Username`, `Name`, `DOB`, `Email`, `IsDebarred`,
 ('apiper', 'Agustina Piper', '1995-07-09', 'apiper@gatech.edu', 0, 'F', NULL, 0, '0.00', NULL),
 ('bturner', 'Buck Turner', '1970-11-12', 'bturner@gatech.edu', 0, 'M', '777 Atlantic Drive, Atlanta, GA', 1, '0.00', 'School of Electrical & Computer Engineering'),
 ('cbenson', 'Carol Benson', '1975-03-21', 'cbenson@gatech.edu', 0, 'M', '801 Atlantic Dr NW, Atlanta, GA', 1, '0.00', 'College of Computing'),
-('dem', 'Enmao D', '1994-07-07', 'diaoenmao@gmail.com', 0, 'M', '950 Marietta ST NW', 1, '0.00', 'School of Electrical & Computer Engineering'),
 ('ediao', 'Enmao Diao', NULL, 'ediao@gatech.edu', 0, 'M', NULL, 0, '0.00', NULL),
 ('gkimberly', 'Geraldo Kimberly', '1987-09-03', 'gkimberly@gatech.edu', 0, 'M', NULL, 0, '0.00', NULL),
 ('gmat', 'Gene Mat', '1989-03-25', 'gmat@gatech.edu', 1, 'M', '250 Union Street, Stone Mountain, GA', 0, '110.00', NULL),
@@ -422,7 +420,7 @@ INSERT INTO `student_faculty` (`Username`, `Name`, `DOB`, `Email`, `IsDebarred`,
 -- --------------------------------------------------------
 
 --
--- 表的结构 `subject`
+-- Table structure for table `subject`
 --
 
 CREATE TABLE IF NOT EXISTS `subject` (
@@ -434,7 +432,7 @@ CREATE TABLE IF NOT EXISTS `subject` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `subject`
+-- Dumping data for table `subject`
 --
 
 INSERT INTO `subject` (`SubName`, `FloorID`, `NumJournal`) VALUES
@@ -447,7 +445,7 @@ INSERT INTO `subject` (`SubName`, `FloorID`, `NumJournal`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -457,7 +455,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`Username`, `Password`) VALUES
@@ -467,7 +465,6 @@ INSERT INTO `user` (`Username`, `Password`) VALUES
 ('apiper', 'apiper123'),
 ('bturner', 'bturner123'),
 ('cbenson', 'cbenson123'),
-('dem', 'dem123'),
 ('ediao', 'ediao123'),
 ('gkimberly', 'gkimberly123'),
 ('gmat', 'gmat123'),
@@ -487,61 +484,61 @@ INSERT INTO `user` (`Username`, `Password`) VALUES
 ('zhui', 'zhui123');
 
 --
--- 限制导出的表
+-- Constraints for dumped tables
 --
 
 --
--- 限制表 `author`
+-- Constraints for table `author`
 --
 ALTER TABLE `author`
   ADD CONSTRAINT `author_ibfk_1` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- 限制表 `book`
+-- Constraints for table `book`
 --
 ALTER TABLE `book`
   ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`ShelfID`) REFERENCES `shelf` (`ShelfID`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `book_ibfk_2` FOREIGN KEY (`SubName`) REFERENCES `subject` (`SubName`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- 限制表 `bookcopy`
+-- Constraints for table `bookcopy`
 --
 ALTER TABLE `bookcopy`
   ADD CONSTRAINT `bookcopy_ibfk_1` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- 限制表 `issue`
+-- Constraints for table `issue`
 --
 ALTER TABLE `issue`
   ADD CONSTRAINT `issue_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `student_faculty` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `issue_ibfk_2` FOREIGN KEY (`ISBN`, `CopyID`) REFERENCES `bookcopy` (`ISBN`, `CopyID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- 限制表 `keyword`
+-- Constraints for table `keyword`
 --
 ALTER TABLE `keyword`
   ADD CONSTRAINT `keyword_ibfk_1` FOREIGN KEY (`SName`) REFERENCES `subject` (`SubName`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- 限制表 `shelf`
+-- Constraints for table `shelf`
 --
 ALTER TABLE `shelf`
   ADD CONSTRAINT `shelf_ibfk_1` FOREIGN KEY (`FloorID`) REFERENCES `floor` (`FloorID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- 限制表 `staff`
+-- Constraints for table `staff`
 --
 ALTER TABLE `staff`
   ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `user` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- 限制表 `student_faculty`
+-- Constraints for table `student_faculty`
 --
 ALTER TABLE `student_faculty`
   ADD CONSTRAINT `student_faculty_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `user` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- 限制表 `subject`
+-- Constraints for table `subject`
 --
 ALTER TABLE `subject`
   ADD CONSTRAINT `subject_ibfk_1` FOREIGN KEY (`FloorID`) REFERENCES `floor` (`FloorID`) ON DELETE CASCADE ON UPDATE CASCADE;

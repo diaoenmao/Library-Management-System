@@ -1,4 +1,13 @@
 <html>
+<?php
+include 'dbinfo.php'; 
+?>  
+<?php
+//always start the session before anything else!!!!!! 
+session_start(); 
+//connect to the db 
+$username = $_SESSION['username'];
+?> 
 <body>
 <h1>SearchBooks</h1>
 
@@ -8,20 +17,12 @@
     <td>ISBN</td>
     <td><input type="text" name="isbn"/></td>
 </tr>
-<tr>
-    <td>Publisher</td>
-    <td><input type="text" name="publisher"/></td>
-</tr>
 
 <tr>
     <td>Title</td>
     <td><input type="text" name="title"/></td>
 </tr>
 
-<tr>
-    <td>Edition</td>
-    <td><input type="text" name="edition"/></td>
-</tr>
 
 <tr>
     <td>Author</td>
@@ -29,18 +30,17 @@
 </tr>
 
 </table>
-
 <input type="submit" value="Search"/>
 
 </form>
 
-<form action="TrackBookLocation.php" method="post">
-<table>
-<input type="submit" value="Search Location"/>
-<table>
+<form action="UserSummary.php" method="post">
+<input type="submit" value="Back"/>
+</form>
 
-<button type="button" onclick="alert('Hello world!')">Back</button>
-<button type="button" onclick="alert('Hello world!')">Close</button>
+<form action="Login.php" method="post">
+<input type="submit" value="Close"/>
+</form>
 
 </body>
 </html>
