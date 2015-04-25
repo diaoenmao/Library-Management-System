@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-04-20 10:48:50
+-- Generation Time: 2015-04-21 13:52:22
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
@@ -98,7 +98,7 @@ INSERT INTO `book` (`ISBN`, `Title`, `Cost`, `IsReserved`, `Edition`, `PubliPlac
 ('0123944244', 'Digital Design and Computer Architecture', '52.57', 0, 2, 'US', 'Morgan Kaufmann', '2012', 311, 'Computer Architecture'),
 ('0124077269', 'Computer Organization and Design', '75.74', 0, 5, 'US', 'Morgan Kaufmann', '2013', 312, 'Computer Architecture'),
 ('0205973361', 'Psychology', '158.53', 0, 4, '', 'Pearson', '2014', 232, 'Psychology'),
-('0321696867', 'University Physics with Modern Physics', '225.76', 1, 13, 'UK', 'Addison-Wesley', '2011', 211, 'Physics'),
+('0321696867', 'University Physics with Modern Physics', '225.76', 0, 13, 'UK', 'Addison-Wesley', '2011', 211, 'Physics'),
 ('0321740904', 'Physics for Scientists and Engineers: A Strategic Approach with Modern Physics', '228.16', 1, 3, 'US', 'Addison-Wesley', '2012', 212, 'Physics'),
 ('0321884078', 'Thomas'' Calculus: Early Transcendentals', '198.89', 0, 13, '', 'Pearson', '2013', 111, 'Calculus'),
 ('0470879521', 'Physics', '209.38', 0, 9, '', 'John Wiley and Sons', '2012', 212, 'Physics'),
@@ -146,7 +146,7 @@ INSERT INTO `bookcopy` (`ISBN`, `CopyID`, `IsChecked`, `IsHold`, `IsDamaged`, `F
 ('0124077269', 7, 0, 0, 1, NULL),
 ('0205973361', 1, 1, 0, 0, NULL),
 ('0205973361', 2, 0, 1, 0, NULL),
-('0205973361', 3, 0, 0, 0, NULL),
+('0205973361', 3, 1, 0, 0, NULL),
 ('0321696867', 1, 0, 0, 0, NULL),
 ('0321696867', 2, 0, 0, 0, NULL),
 ('0321696867', 3, 0, 0, 0, NULL),
@@ -235,33 +235,44 @@ CREATE TABLE IF NOT EXISTS `issue` (
 
 INSERT INTO `issue` (`Username`, `ISBN`, `CopyID`, `IssueID`, `ExtenDate`, `IssueDate`, `ReturnDate`, `NumExten`) VALUES
 ('aclark', '0124077269', 1, 115, '2015-04-13', '2015-03-31', '2015-04-27', 1),
+('ahart', '0123704901', 1, 45, '2015-01-03', '2015-01-03', '2015-01-17', 0),
 ('ahart', '0123704901', 3, 150, NULL, '2015-04-19', '2015-05-03', 0),
 ('ahart', '0124077269', 7, 82, '2015-02-05', '2015-02-05', '2015-02-19', 0),
 ('apiper', '0124077269', 2, 143, NULL, '2015-04-18', '2015-05-02', 0),
+('apiper', '0321696867', 1, 64, '2015-01-12', '2015-01-12', '2015-01-26', 0),
 ('bturner', '0124077269', 3, 169, NULL, '2015-04-20', '2015-05-04', 0),
 ('bturner', '0321884078', 1, 119, '2015-04-07', '2015-04-07', '2015-04-21', 0),
 ('cbenson', '1452257876', 1, 116, '2015-04-15', '2015-04-11', '2015-04-29', 1),
+('dem', '0205973361', 3, 185, '2015-04-21', '2015-04-21', '2015-05-05', 0),
+('ediao', '0124077269', 1, 74, '2015-02-10', '2015-02-10', '2015-02-24', 0),
 ('ediao', '0321696867', 1, 89, '2015-02-10', '2015-02-10', '2015-02-24', 0),
 ('ediao', '099040207X', 2, 148, NULL, '2015-04-16', '2015-04-30', 0),
-('gkimberly', '0123704901', 1, 110, '2015-04-03', '2015-04-03', '2015-04-17', 0),
+('gkimberly', '0123704901', 1, 85, '2015-03-03', '2015-03-03', '2015-03-17', 0),
 ('gkimberly', '0596802358', 1, 177, NULL, '2015-04-20', '2015-05-04', 0),
+('gstarr', '0124077269', 2, 73, '2015-01-05', '2015-01-05', '2015-01-19', 0),
 ('hclifton', '0205973361', 2, 166, NULL, '2015-04-21', '2015-05-05', 0),
 ('hclifton', '0470879521', 2, 120, NULL, '2015-04-17', '2015-05-01', 0),
+('hclifton', '099040207X', 3, 52, '2015-01-11', '2015-01-11', '2015-01-25', 0),
+('hsun', '0123704901', 3, 47, '2015-01-05', '2015-01-05', '2015-01-19', 0),
 ('hsun', '1449600069', 1, 157, NULL, '2015-04-20', '2015-05-04', 0),
 ('hsun', '1590597699', 1, 72, '2015-02-03', '2015-02-03', '2015-02-17', 0),
+('kburns', '0123944244', 1, 61, '2015-01-25', '2015-01-25', '2015-02-09', 0),
+('kburns', '0321696867', 2, 54, '2015-01-19', '2015-01-16', '2015-02-03', 1),
 ('kburns', '099040207X', 1, 117, '2015-04-15', '2015-04-15', '2015-04-29', 0),
 ('kburns', '1429261781', 1, 111, '2015-04-19', '2015-04-14', '2015-05-03', 1),
-('kburns', '1429261781', 2, 60, '2014-12-15', '2014-12-15', '2014-12-29', 0),
+('kburns', '1429261781', 2, 88, '2015-03-15', '2015-03-15', '2015-03-29', 0),
 ('lnarang', '0123944244', 1, 79, '2015-02-11', '2015-02-04', '2015-02-25', 1),
+('lnarang', '099040207X', 2, 53, '2015-01-12', '2015-01-12', '2015-01-26', 0),
 ('lnarang', '1429261781', 1, 75, '2015-03-05', '2015-02-05', '2015-02-26', 2),
+('lnoel', '0123704901', 2, 44, '2015-01-01', '2015-01-01', '2015-01-05', 0),
 ('lnoel', '1590597699', 1, 114, '2015-04-21', '2015-04-14', '2015-05-05', 1),
 ('nbatts', '0123704901', 2, 65, '2015-01-01', '2015-01-01', '2015-01-15', 0),
-('nbatts', '0123944244', 2, 48, '2014-11-30', '2014-11-21', '2014-12-14', 1),
+('nbatts', '0123944244', 2, 94, '2015-03-30', '2015-03-21', '2015-04-14', 1),
 ('sgarner', '0124077269', 6, 81, '2015-02-12', '2015-02-12', '2015-02-26', 0),
 ('sgarner', '0205973361', 1, 112, '2015-04-13', '2015-04-01', '2015-04-27', 1),
 ('ssong', '0123944244', 2, 184, NULL, '2015-04-21', '2015-05-05', 0),
-('ssong', '099040207X', 2, 90, '2015-02-11', '2015-02-11', '2015-02-25', 0),
-('thwang', '0205973361', 2, 55, '2014-12-03', '2014-12-03', '2014-12-17', 0),
+('ssong', '099040207X', 2, 83, '2015-02-11', '2015-02-11', '2015-02-25', 0),
+('thwang', '0205973361', 2, 90, '2015-03-10', '2015-03-10', '2013-03-24', 0),
 ('thwang', '0470879521', 4, 78, '2015-02-03', '2015-02-03', '2015-02-17', 0),
 ('ywu', '0123944244', 1, 118, '2015-04-12', '2015-04-12', '2015-04-26', 0);
 
@@ -385,25 +396,28 @@ CREATE TABLE IF NOT EXISTS `student_faculty` (
 INSERT INTO `student_faculty` (`Username`, `Name`, `DOB`, `Email`, `IsDebarred`, `Gender`, `Address`, `IsFaculty`, `Penalty`, `Dept`) VALUES
 ('aclark', 'Anne Clark', '1975-04-19', 'aclark@gatech.edu', 0, 'F', '801 Atlantic Dr NW, Atlanta, GA', 1, '0.00', 'College of Computing'),
 ('ahart', 'Annis Hart', '1987-06-12', 'ahart@gatech.edu', 0, 'F', '209 Oak Street, Dacula, GA', 0, '5.00', NULL),
-('amoore', 'Alice Moore', NULL, 'amoore@gatech.edu', 0, 'F', '435 Williams St, Duluth, GA', 0, '10.00', NULL),
+('amoore', 'Alice Moore', NULL, 'amoore@gatech.edu', 0, 'F', '435 Williams St, Duluth, GA', 0, '0.00', NULL),
 ('apiper', 'Agustina Piper', '1995-07-09', 'apiper@gatech.edu', 0, 'F', NULL, 0, '0.00', NULL),
 ('bturner', 'Buck Turner', '1970-11-12', 'bturner@gatech.edu', 0, 'M', '777 Atlantic Drive, Atlanta, GA', 1, '0.00', 'School of Electrical & Computer Engineering'),
 ('cbenson', 'Carol Benson', '1975-03-21', 'cbenson@gatech.edu', 0, 'M', '801 Atlantic Dr NW, Atlanta, GA', 1, '0.00', 'College of Computing'),
 ('dem', 'Enmao D', '1994-07-07', 'diaoenmao@gmail.com', 0, 'M', '950 Marietta ST NW', 1, '0.00', 'School of Electrical & Computer Engineering'),
 ('ediao', 'Enmao Diao', NULL, 'ediao@gatech.edu', 0, 'M', NULL, 0, '0.00', NULL),
 ('gkimberly', 'Geraldo Kimberly', '1987-09-03', 'gkimberly@gatech.edu', 0, 'M', NULL, 0, '0.00', NULL),
+('gmat', 'Gene Mat', '1989-03-25', 'gmat@gatech.edu', 1, 'M', '250 Union Street, Stone Mountain, GA', 0, '110.00', NULL),
 ('gstarr', 'Gordon Starr', '1989-03-04', 'gstarr@gatech.edu', 0, 'M', NULL, 0, '0.00', NULL),
 ('hclifton', 'Harriet Clifton', '1965-09-08', 'hclifton@gatech.edu', 0, 'F', '755 Ferst Drive, NW, Atlanta, GA', 1, '12.00', 'School of Industrial & Systems Engineering'),
 ('hsun', 'Haitian Sun', NULL, 'hsun@gatech.edu', 0, 'M', NULL, 0, '0.00', NULL),
-('kburns', 'Katey Burns', '1984-02-28', 'kburns@gatech.edu', 1, 'F', '15 Water Street, Jacksonville Beach, FL', 0, '120.00', NULL),
-('lnarang', 'Lina Narang', '1985-08-15', 'lnarang@gatech.edu', 1, 'F', '950 Marietta St NW, Atlanta, GA ', 0, '100.00', NULL),
-('lnoel', 'Lazare Noel', '1988-12-10', 'lnoel@gatech.edu', 1, 'M', NULL, 0, '105.10', NULL),
+('kburns', 'Katey Burns', '1984-02-28', 'kburns@gatech.edu', 0, 'F', '15 Water Street, Jacksonville Beach, FL', 0, '40.00', NULL),
+('kwalls', 'Kathy Walls', '1986-06-12', 'kwalls@gatech.edu', 1, 'F', '48 Bank Street Roswell, Atlanta, GA ', 0, '140.00', NULL),
+('lnarang', 'Lina Narang', '1985-08-15', 'lnarang@gatech.edu', 0, 'F', '950 Marietta St NW, Atlanta, GA ', 0, '30.00', NULL),
+('lnoel', 'Lazare Noel', '1988-12-10', 'lnoel@gatech.edu', 0, 'M', NULL, 0, '5.10', NULL),
 ('mross', 'Michael Ross', '1991-10-01', 'mross@gatech.edu', 0, 'M', '282 Sycamore Drive, Hephzibah, GA', 0, '31.20', NULL),
 ('nbatts', 'Norman Batts', '1992-02-09', 'nbatts@gatech.edu', 0, 'M', NULL, 0, '0.00', NULL),
 ('sgarner', 'Sheard Garner', '1969-05-30', 'sgarner@gatech.edu', 0, 'M', '777 Atlantic Drive, Atlanta, GA', 1, '35.50', 'School of Electrical & Computer Engineering'),
 ('ssong', 'Seok Song', '1992-07-05', 'ssong@gatech.edu', 0, 'M', '470 16th St, Atlanta, GA', 0, '0.00', NULL),
 ('thwang', 'Tiffany Hwang', '1989-08-01', 'thwang@gatech.edu', 0, 'F', '942 Union Street, Stone Mountain, GA', 0, '0.00', NULL),
-('ywu', 'Yuxiao Wu', '1993-07-01', 'ywu@gatech.edu', 0, 'F', '935 Marietta St NW, Atlanta, GA', 0, '0.00', NULL);
+('ywu', 'Yuxiao Wu', '1993-07-01', 'ywu@gatech.edu', 0, 'F', '935 Marietta St NW, Atlanta, GA', 0, '0.00', NULL),
+('zhui', 'Hui Zan', '1995-05-03', 'zhui@gatech.edu', 1, 'M', '350 Ferst Drive, NW, Atlanta, GA', 0, '120.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -456,10 +470,12 @@ INSERT INTO `user` (`Username`, `Password`) VALUES
 ('dem', 'dem123'),
 ('ediao', 'ediao123'),
 ('gkimberly', 'gkimberly123'),
+('gmat', 'gmat123'),
 ('gstarr', 'gstarr123'),
 ('hclifton', 'hclifton123'),
 ('hsun', 'hsun123'),
 ('kburns', 'kburns123'),
+('kwalls', 'kwalls123'),
 ('lnarang', 'lnarang123'),
 ('lnoel', 'lnoel123'),
 ('mross', 'mross123'),
@@ -467,7 +483,8 @@ INSERT INTO `user` (`Username`, `Password`) VALUES
 ('sgarner', 'sgarner123'),
 ('ssong', 'ssong123'),
 ('thwang', 'thwang123'),
-('ywu', 'ywu123');
+('ywu', 'ywu123'),
+('zhui', 'zhui123');
 
 --
 -- 限制导出的表

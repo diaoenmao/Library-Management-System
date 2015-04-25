@@ -2,7 +2,7 @@
 <html>
 <body>
 <h1>Hold Request for a Book</h1>
-<form action="RequestExtensionOnaBook.php" method="post">
+<form action="UserSurface.php" method="post">
 
 <table border="1" style="width:100%">
   <tr>
@@ -26,6 +26,12 @@
   </tr>
 </table>
 
+<input type="Submit" value="submit"/>
+</form>
+
+<form action="RequestExtensionOnaBook.php" method="post">
+<input type="Submit" value="Request Extension On a Book"/>
+<form>
 
 </body>
 </html>
