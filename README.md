@@ -19,7 +19,7 @@ So minor things I forget to include are mentioned by TA when I was doing the dem
 1. I forget book is no longer on hold after three days
 2. I forget the damaged books should be queried as MAX(ReuturnDate) for damaged books report
 3. I forget people cannot place a hold request a book if the book has a future requester
-4. Final Grade :
+4. Final Grade : 95
 
 ### Phases 
 #####Phase I (Soft copy and hard copy)
